@@ -17,16 +17,21 @@ import { Service, Stat } from './types';
 
 /**
  * LOGO COMPONENT
- * Points to the file you manually placed in /public/resources/logo.png
+ * Fixed for GitHub Pages deployment
  */
-export const PMH_LOGO = (className = "h-20 w-auto") => ( // Changed from h-8 to h-14
+export const PMH_LOGO = (className = "h-20 w-auto") => ( 
   <img 
-    src="/resources/logo.png" 
+    // REMOVED the leading slash so it works inside the subfolder
+    src="resources/logo.png" 
     alt="Punchline Marketing Hub" 
     className={`${className} object-contain transition-all`} 
-    style={{ minWidth: '100px' }} // Optional: ensures the logo stays wide enough to read
+    style={{ minWidth: '100px' }} 
     onError={(e) => {
-      (e.target as HTMLImageElement).src = 'https://via.placeholder.com/250x60?text=PMH+LOGO';
+      // Fallback if the path is still tricky
+      const target = e.target as HTMLImageElement;
+      if (target.src !== 'https://via.placeholder.com/250x60?text=PMH+LOGO') {
+        target.src = 'https://via.placeholder.com/250x60?text=PMH+LOGO';
+      }
     }}
   />
 );
