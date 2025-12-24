@@ -1,6 +1,5 @@
-
 import React, { useEffect } from 'react';
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -22,7 +21,10 @@ const ScrollToTop = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
+    /* Updated to BrowserRouter with the correct basename.
+       This matches your 'base' in vite.config.ts 
+    */
+    <Router basename="/punchline-marketing-hub">
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />
@@ -35,7 +37,7 @@ const App: React.FC = () => {
             <Route path="/events" element={<Events />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
-            {/* Catch-all */}
+            {/* Catch-all to prevent 404s on refresh */}
             <Route path="*" element={<Home />} />
           </Routes>
         </main>
