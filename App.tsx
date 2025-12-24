@@ -24,7 +24,7 @@ const App: React.FC = () => {
     /* Updated to BrowserRouter with the correct basename.
        This matches your 'base' in vite.config.ts 
     */
-    <Router basename="/punchline-marketing-hub">
+       <Router basename="/punchline-marketing-hub">
       <ScrollToTop />
       <div className="flex flex-col min-h-screen">
         <Navbar />

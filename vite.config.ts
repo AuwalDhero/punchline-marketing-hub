@@ -5,9 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
     return {
-      // Add the base property below. 
-      // This MUST match your repository name exactly.
-      base: '/punchline-marketing-hub/',
+      // THIS IS THE MOST IMPORTANT LINE
+      base: '/punchline-marketing-hub/', 
       
       server: {
         port: 3000,
